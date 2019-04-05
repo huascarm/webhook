@@ -18,7 +18,7 @@ restService.post("/echo", function(req, res) {
     req.body.queryResult &&
     req.body.queryResult.parameters &&
     req.body.queryResult.parameters.echoText
-      ? req.body.queryResult.parameters.echoText + " dijo Huascar"
+      ? "Envie esto al humano \""+req.body.queryResult.parameters.echoText + " \"  El dijo esto: \"Hola soy humano\""
       : "Seems like some problem. Speak again."+req.body;
   
   return res.json({
