@@ -20,7 +20,7 @@ restService.post("/echo", function(req, res) {
     req.body.queryResult &&
     req.body.queryResult.parameters &&
     req.body.queryResult.parameters.echoText
-      ? "Respuesta "+c+": Envie esto al humano \""+req.body.queryResult.parameters.echoText + " \"  El dijo esto: \"Hola soy humano\""
+      ? "Respuesta "+c+": Envié esto al humano \""+req.body.queryResult.parameters.echoText + " \"  y el dijo esto: \"Hola soy humano\""
       : "Seems like some problem. Speak again."+req.body;
 
   if(c>2){
