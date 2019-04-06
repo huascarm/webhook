@@ -16,6 +16,7 @@ restService.use(bodyParser.json());
 
 var limite = 3;
 restService.post("/echo", function(req, res) {
+  
   c++;
   var speech = '';
   if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText){
@@ -42,13 +43,15 @@ restService.post("/echo", function(req, res) {
       ],
       "source": "<webhookpn1>",
     
-      "outputContexts": {
-        "name": "bot",
-        "parameters": {
-          "parameter-name-1": "parameter-value-1",
-          "parameter-name-2": "parameter-value-2"
+      "outputContexts": [
+        {
+          "name": "projects/huascar1/agent/sessions/"+req.body.sessionId+"/contexts/bot",
+          "lifespanCount": 5,
+          "parameters": {
+            "param": "param value"
+          }
         }
-      }
+      ],
     
       });
 
