@@ -31,6 +31,7 @@ restService.post("/echo", function(req, res) {
   
 
   if(c>=limite){
+    c=0;
     return res.json({
 
       "fulfillmentText": speech,
