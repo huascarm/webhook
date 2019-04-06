@@ -14,16 +14,22 @@ restService.use(
 
 restService.use(bodyParser.json());
 
+var limite = 3;
 restService.post("/echo", function(req, res) {
   c++;
-  var speech =
-    req.body.queryResult &&
-    req.body.queryResult.parameters &&
-    req.body.queryResult.parameters.echoText
-      ? "Respuesta "+c+": Envié esto al humano \""+req.body.queryResult.parameters.echoText + " \"  y el dijo esto: \"Hola soy humano\""
-      : "Seems like some problem. Speak again."+req.body;
+  var speech = '';
+  if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText){
+    if(c < limite){
+      speech = "Respuesta "+c+": Envié esto al humano \""+req.body.queryResult.parameters.echoText + " \"  y el dijo esto: \"Hola soy humano\"";
+    }else{
+      speech = "El humano se desconecto";
+    }
+  }else{
+    speech = "Tengo problemas para entender. Repite por favor "+req.body;
+  }
+  
 
-  if(c>2){
+  if(c>=limite){
     return res.json({
 
       "fulfillmentText": speech,
