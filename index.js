@@ -42,7 +42,7 @@ restService.post("/echo", function(req, res) {
       ],
       "source": "<webhookpn1>",
     
-      "contextOut":[{"name":"bot", "lifespan":1, "parameters":{}}],
+      "outputContexts":[{"name":"bot", "lifespan":1, "parameters":{}}],
       });
 
   }else{
