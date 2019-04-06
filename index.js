@@ -14,12 +14,12 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-var limite = 4;
+var limite = 3;
 restService.post("/echo", function(req, res) {
   c++;
   var speech = '';
   if(req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.echoText){
-    if(c < limite-1){
+    if(c < limite){
       speech = "Respuesta "+c+": Envié esto al humano: \""+req.body.queryResult.parameters.echoText + " \", y el dijo esto: \"Hola soy humano\"";
     }else{
       speech = "El humano se desconectó.";
@@ -42,14 +42,7 @@ restService.post("/echo", function(req, res) {
       ],
       "source": "<webhookpn1>",
     
-      "followupEventInput": {
-        "name": "Welcome",
-        "parameters": {
-          "parameter-name-1": "parameter-value-1",
-          "parameter-name-2": "parameter-value-2"
-        }
-      }
-    
+      "contextOut":[{"name":"bot", "lifespan":1, "parameters":{}}],
       });
 
   }else{
