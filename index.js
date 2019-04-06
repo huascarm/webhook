@@ -67,7 +67,16 @@ restService.post("/echo", function(req, res) {
           }
         }
       ],
-      "source": "<webhookpn1>"
+      "source": "<webhookpn1>",
+      "outputContexts": [
+        {
+          "name": "projects/huascar1/agent/sessions/"+req.body.sessionId+"/contexts/humano",
+          "lifespanCount": 5,
+          "parameters": {
+            "param": "param value"
+          }
+        }
+      ],
     
     
       });
