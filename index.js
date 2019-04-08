@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //socket
 let server = app.listen(process.env.PORT || 8000, function() {
-  console.log("Server up and listening");
+  console.log(server);
 });
 const io = require("socket.io")(server);
 
@@ -44,7 +44,7 @@ io.on("connection", socket => {
   });
 });
 
-restService.post("/echo", function(req, res) {
+app.post("/echo", function(req, res) {
   var speech = "";
   var socket = io.connect("https://habla2.herokuapp.com/");
 
