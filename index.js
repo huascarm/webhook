@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //socket
 let server = app.listen(process.env.PORT || 8000, function() {
-  console.log(server);
+  console.log(server.listening);
 });
 const io = require("socket.io")(server);
 
