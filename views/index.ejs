@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-8 offset-2">
+            <div class="card" style="background-color:cadetblue; border-color:darkblue;">
+                <img class="card-img-top" src="" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">ATENCION AL CLIENTE</h4>
+                    <div class="input-group mb-3">
+                        <input type="text" id="user" class="form-control" placeholder="Nombre de usuario"
+                            aria-label="Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <button type="button input-group-text" class="btn btn-primary"
+                                id="send_username">Enviar</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <ul class="card-text list-group id=" id="chatroom">Mensajes</ul>
+                    <hr>
+                    <div class="input-group mb-3">
+                        <input type="text" id="message" class="form-control" placeholder="Mensaje ..."
+                            aria-label="Username" aria-describedby="basic-addon1">
+                        <div class="input-group-prepend">
+                            <button type="button input-group-text" class="btn btn-primary"
+                                id="send_message">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="chat.js"></script>
+
+</body>
+
+</html>
