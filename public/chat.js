@@ -1,5 +1,6 @@
 $(function(){
     var socket = io.connect('https://habla2.herokuapp.com/');
+    console.log(socket);
     var message = $('#message');
     var user = $('#user');
     var send_message = $('#send_message');
