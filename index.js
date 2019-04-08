@@ -69,7 +69,7 @@ app.post("/echo", function(req, res, next) {
     fulfillmentMessages: [
       {
         text: {
-          text: serv[serv.length-1].username+': '+serv[serv.length-1].message,
+          text: 'Respuesta correcta',//serv[serv.length-1].username+': '+serv[serv.length-1].message,
         }
       }
     ],
