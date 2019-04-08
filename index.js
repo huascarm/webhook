@@ -20,7 +20,7 @@ let server = app.listen(process.env.PORT || 8000, function() {
   console.log(server.address().port);
 });
 const io = require("socket.io")(server);
-
+const io_client = require( 'socket.io-client' );
 //chat
 app.get("/", (req, res) => {
   res.render("index");
@@ -46,7 +46,7 @@ io.on("connection", socket => {
 
 app.post("/echo", function(req, res) {
   var speech = "";
-  var socket = io.connect("https://habla2.herokuapp.com/");
+  var socket = io_client.connect("https://habla2.herokuapp.com/");
   console.log(socket);
   if (
     req.body.queryResult &&
