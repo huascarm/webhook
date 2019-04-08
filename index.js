@@ -48,7 +48,7 @@ io.on("connection", socket => {
 });
 
 app.post("/echo", function(req, res) {
-  var speech = "";
+  var speech = "Era esto?";
   var socket = io_client.connect("https://habla2.herokuapp.com/");
   if (
     req.body.queryResult &&
@@ -60,7 +60,7 @@ app.post("/echo", function(req, res) {
       username: "bot"
     });
   }
-  
+
   /*setTimeout(function(){
     next();
   },10);*/
@@ -70,7 +70,7 @@ app.post("/echo", function(req, res) {
     fulfillmentMessages: [
       {
         text: {
-          text: 'Respuesta correcta',//serv[serv.length-1].username+': '+serv[serv.length-1].message,
+          text: speech,//serv[serv.length-1].username+': '+serv[serv.length-1].message,
         }
       }
     ],
