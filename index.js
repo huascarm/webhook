@@ -44,10 +44,9 @@ io.on("connection", socket => {
   });
 });
 
-app.post("/echo", function(req, res) {
+app.post("/echo", function(req, res, next) {
   var speech = "";
   var socket = io_client.connect("https://habla2.herokuapp.com/");
-  console.log(socket);
   if (
     req.body.queryResult &&
     req.body.queryResult.parameters &&
@@ -61,6 +60,8 @@ app.post("/echo", function(req, res) {
 
   socket.on('message_server', function(data){
     console.warn('Mensaje recibido SERV CLIENT: ', data);
+    next();
+
     res.json({
       fulfillmentText: speech,
       fulfillmentMessages: [
@@ -85,5 +86,4 @@ app.post("/echo", function(req, res) {
       ]
     });
   })
-
 });
