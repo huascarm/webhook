@@ -48,7 +48,7 @@ io.on("connection", socket => {
 });
 
 app.post("/echo", function(req, res) {
-  console.log('SESSION', req.body)
+  console.log('SESSION', req.body.session)
   var speech = "Era esto?";
   var socket = io_client.connect("https://habla2.herokuapp.com/");
   if (
@@ -78,8 +78,7 @@ app.post("/echo", function(req, res) {
     source: "<webhookpn1>",
     outputContexts: [
       {
-        name:
-          "projects/huascar1/agent/sessions/"+req.body.sessionId+"/contexts/humano",
+        name: req.body.session+"/contexts/humano",
         lifespanCount: 5,
         parameters: {
           param: "param value"
