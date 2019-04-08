@@ -62,7 +62,7 @@ app.post("/echo", function(req, res, next) {
   }
   setTimeout(function(){
     next();
-  },3000)
+  },1000)
 
   res.json({
     fulfillmentText: speech,
