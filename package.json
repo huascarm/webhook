@@ -9,8 +9,9 @@
   "author": "Huascar Miranda Martínez",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "ejs": "^2.6.1",
     "express": "^4.13.4",
     "socket.io": "^2.2.0",
-    "ejs": "^2.6.1"
+    "socket.io-client": "^2.2.0"
   }
 }
