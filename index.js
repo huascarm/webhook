@@ -70,8 +70,8 @@ app.post("/echo", function(req, res) {
     fulfillmentText: speech,
     fulfillmentMessages: [
       {
-        text: {
-          text: speech,//serv[serv.length-1].username+': '+serv[serv.length-1].message,
+        "text": {
+          "text": speech,//serv[serv.length-1].username+': '+serv[serv.length-1].message,
         }
       }
     ],
