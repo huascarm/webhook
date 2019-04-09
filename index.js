@@ -77,7 +77,7 @@ app.post("/echo", function(req, res, next) {
     contexto = 'humano';
   }
 
-  setTimeout(next,5000);
+  setTimeout(next,2000);
 
   res.json({
     fulfillmentText: speech,
