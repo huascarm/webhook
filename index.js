@@ -47,7 +47,7 @@ io.on("connection", socket => {
   });
 });
 
-app.post("/echo", function(req, res) {
+app.post("/echo", function(req, res, next) {
   console.log('SESSION', req.body.session)
   var speech = "Era esto?";
   var socket = io_client.connect("https://habla2.herokuapp.com/");
