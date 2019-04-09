@@ -62,9 +62,9 @@ app.post("/echo", function(req, res) {
     });
   }
 
-  /*setTimeout(function(){
+  setTimeout(function(){
     next();
-  },10);*/
+  },3000);
 
   res.json({
     fulfillmentText: speech,
