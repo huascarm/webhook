@@ -55,7 +55,7 @@ io.on("connection", socket => {
   })
 });
 
-app.post("/echo", function(req, res, next) {
+app.post("/echo", function(req, res) {
   var speech = serv[serv.length-1].username+': '+serv[serv.length-1].message;
   var desconectar = serv[serv.length-1].message;
   var socket = io_client.connect("https://habla2.herokuapp.com/");
@@ -70,16 +70,16 @@ app.post("/echo", function(req, res, next) {
     });
   }
 
-  setTimeout(function(){
-    next();
-  },3000);
-
   var contexto;
   if(desconectar=='apagate'){
     contexto = 'bot';
   }else{
     contexto = 'humano';
   }
+  setTimeout(function(){
+    console('DELAY ....');
+    next();
+  },3000);
 
   res.json({
     fulfillmentText: speech,
