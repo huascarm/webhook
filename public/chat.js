@@ -10,7 +10,9 @@ $(function(){
     //events
     send_username.click(function(){
         console.log('Username', user.val())
-        socket.emit('change_username', {username: user.val()})
+        socket.emit('change_username', {username: user.val()});
+        $('#title').html(user.val());
+        user.val('');
     })
 
     send_message.click(function(){

@@ -68,7 +68,7 @@ app.post("/echo", function(req, res, next) {
   },3000);
 
   var contexto;
-  if(desconectar=='desconectar'){
+  if(desconectar=='apagate'){
     contexto = 'bot';
   }else{
     contexto = 'humano';
