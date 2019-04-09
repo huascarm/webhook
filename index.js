@@ -39,6 +39,7 @@ io.on("connection", socket => {
 
   socket.on("message_client", data => {
     serv.push(data);
+    console.log('SERV', serv);
     console.log("Mensaje recibido", data);
     io.sockets.emit("message_server", {
       username: socket.username,
