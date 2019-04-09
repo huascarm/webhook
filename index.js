@@ -77,26 +77,29 @@ app.post("/echo", function(req, res, next) {
     contexto = 'humano';
   }
 
-  setTimeout(next,2000);
+  setTimeout(()=>{
+    next();
+    res.json({
+      fulfillmentText: speech,
+      fulfillmentMessages: [
+        {
+          text: {
+            text: [speech],
+          }
+        }
+      ],
+      source: "<webhookpn1>",
+      outputContexts: [
+        {
+          name: req.body.session+"/contexts/"+contexto,
+          lifespanCount: 5,
+          parameters: {
+            param: "param value"
+          }
+        }
+      ]
+    });
+  },2000);
 
-  res.json({
-    fulfillmentText: speech,
-    fulfillmentMessages: [
-      {
-        text: {
-          text: [speech],
-        }
-      }
-    ],
-    source: "<webhookpn1>",
-    outputContexts: [
-      {
-        name: req.body.session+"/contexts/"+contexto,
-        lifespanCount: 5,
-        parameters: {
-          param: "param value"
-        }
-      }
-    ]
-  });
+
 });
