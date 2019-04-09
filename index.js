@@ -72,7 +72,7 @@ app.post("/echo", function(req, res, next) {
 
   setTimeout(function(){
     next();
-  },3000);
+  },8000);
 
   var contexto;
   if(desconectar=='apagate'){
