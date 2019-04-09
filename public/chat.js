@@ -14,7 +14,8 @@ $(function(){
     })
 
     send_message.click(function(){
-        socket.emit('message_client', {message: message.val(), username: user.val()})
+        socket.emit('message_client', {message: message.val(), username: user.val()});
+        message.val('');
     })
 
     socket.on('message_server', function(data){
