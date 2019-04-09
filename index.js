@@ -46,6 +46,13 @@ io.on("connection", socket => {
       message: data.message
     });
   });
+
+  socket.on("message_client2", data => {
+    io.sockets.emit("message_server", {
+      username: socket.username,
+      message: data.message
+    });
+  })
 });
 
 app.post("/echo", function(req, res, next) {
@@ -57,7 +64,7 @@ app.post("/echo", function(req, res, next) {
     req.body.queryResult.parameters &&
     req.body.queryResult.parameters.echoText
   ) {
-    socket.emit("message_client", {
+    socket.emit("message_client2", {
       message: req.body.queryResult.parameters.echoText,
       username: "bot"
     });
@@ -94,8 +101,4 @@ app.post("/echo", function(req, res, next) {
       }
     ]
   });
-
-  socket.on('message_server', function(data){
-    console.warn('Mensaje recibido SERV CLIENT: ', data);
-  })
 });
